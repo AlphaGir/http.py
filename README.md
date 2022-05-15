@@ -1,5 +1,5 @@
 # http.py
-用于批量扫描功能。<strong>功能点没有什么新意</strong>，主要是个人学习python编程和个人使用。有些大型项目里可能用得到，小项目没有什么用。。。哈哈哈哈
+用于批量扫描功能。<strong>功能点没有什么新意</strong>，<strong>主要是个人学习python编程和个人使用。</strong>有些大型项目里可能用得到，小项目没有什么用。。。哈哈哈哈
 这些功能一些扫描器其实都有。甚至比较完备。但是呢不想安装，然后锻炼一下python编程能力，实际上我以前从来没有写过python代码，以后需要Python地方还很多。
 
 环境:python3 urllib bs4  BeautifulSoup
