@@ -1,6 +1,7 @@
 import urllib
 import random
 import sys
+import ssl
 import urllib.request
 from urllib import error, request
 from bs4 import BeautifulSoup
@@ -27,20 +28,27 @@ def u(strlist):
         elif hasattr(e, 'reason'):
             print("URLError")
             print(e.reason)
+			
 def url(strl):
-    req = request.Request("http://"+strl)
+  
+    prex=""
+    if "http" not in strl:
+        prex="https://" 
+
+    req=request.Request(prex+strl)
     try:
-        response = request.urlopen(req,timeout=0.9)
-       # html = response.read().decode('utf-8')
-        print(response.status)
+       response = request.urlopen(req,timeout=1)
+      
+       print(strl.strip('\n')+":"+str(response.status))
     except error.URLError as e:
         if hasattr(e, 'code'):
-            print("HTTPError")
-            print(e.code)
-        elif hasattr(e, 'reason'):
-            print("URLError")
-            print(e.reason)
+            print(strl.strip('\n')+": HTTPError"+":"+str(e.code))
 
+        elif hasattr(e, 'reason'):
+            print(strl.strip('\n')+": URLError"+":"+str(e.reason))
+
+    
+	    
 def dnsurl(strs,a):
     homeReq = urllib.request.Request(
     #url = "https://site.ip138.com/110.75.129.5/"
@@ -94,7 +102,8 @@ def main():
     elif sys.argv[1]=='-url':
         f = open(sys.argv[2])
         for line in f:
-            u(line)
+                if line!='\n':
+	          url(line)
         f.close()
     elif sys.argv[1]=='-ip:domain':
         f = open(sys.argv[2])
@@ -106,3 +115,4 @@ def main():
         
 if __name__ == "__main__":
     main()
+
