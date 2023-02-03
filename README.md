@@ -4,7 +4,7 @@
 
 环境:python3 urllib bs4  BeautifulSoup
 
-* 1.从文件批量扫描url 判断url访问 python3 http.py -url url文件目录
+* 1.从文件批量扫描url 判断url访问情况 python3 http.py -url url文件目录
 * 2.ip反查域名，以及对应域名访问情况 python3 http.py -ip:domain ip文件目录
 
 后期会增加 子域名 端口扫描功能或者其他我个人需要的功能。<strong>以我个人项目实际需求为主。</strong>
